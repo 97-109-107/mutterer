@@ -114,7 +114,10 @@ print_imap()
         print_commented_auto_warning
         echo
         local imap_order=${settings[general.imap_order]-${!accounts[@]}}
+        local lib_folder=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
         printf '[general]\n'
+        printf "pythonfile = $lib_folder/python_file.py\n"
+
         local k
         for k in $(keys | grep '^general\.imap\.'); do
             [[ "$k" =~ ^general\.imap\.(.*)$ ]]
