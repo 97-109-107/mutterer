@@ -132,6 +132,7 @@ imap.Repository remote_%{id}.remoteport ?~= $([[ ! "%{imap_host}" =~ : ]] || ech
 imap.Repository remote_%{id}.ssl        ?~= %{imap_ssl:-}
 imap.Repository remote_%{id}.remotepass  ?= %{password}
 imap.Repository remote_%{id}.folderfilter ?~= %{imap_filter:-}
+imap.Repository remote_%{id}.remotepasseval ?= "mailpasswd(\"%{id}\")"
 # imap.Repository.remote_${id}.sslcacertfile = ...
 
 [accounts %{smtp_defaults:-}]
