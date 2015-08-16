@@ -130,6 +130,7 @@ imap.Repository remote_%{id}.type        ?= %{imap_type}
 imap.Repository remote_%{id}.remotehost  ?= %{imap_host%:*}
 imap.Repository remote_%{id}.remoteport ?~= $([[ ! "%{imap_host}" =~ : ]] || echo "%{imap_host#*:}")
 imap.Repository remote_%{id}.ssl        ?~= %{imap_ssl:-}
+imap.Repository remote_%{id}.maxage      ?~= %{maxage:-}
 imap.Repository remote_%{id}.remotepass  ?= %{password}
 imap.Repository remote_%{id}.folderfilter ?~= %{imap_filter:-}
 # imap.Repository.remote_${id}.sslcacertfile = ...
