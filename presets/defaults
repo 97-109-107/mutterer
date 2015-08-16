@@ -147,5 +147,5 @@ smtp.tls_trust_file  ?~= "$(\
        "%{smtp.tls_certcheck:-}" == off ]] \
     || echo /etc/ssl/certs/ca-certificates.crt)"
 smtp.logfile          ?= ~/.msmtp/%{id}.log
-smtp.passwordeval     ?~= $(printn "gpg2 -q --for-your-eyes-only --no-tty -d ~/.keys/%{id}.asc")
+smtp.passwordeval     ?~= $(printn "gpg2 -q --for-your-eyes-only --no-tty -d ~/.offlineimap/keys/%{id}.asc")
 # smtp.maildomain ?= 
